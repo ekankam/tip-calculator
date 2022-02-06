@@ -1,0 +1,143 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: "Space Mono", monospace;
+  background-color: #c5e4e7;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 2rem;
+  font-family: inherit;
+}
+
+.header {
+  margin-bottom: 4rem;
+  font-size: 1.9rem;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  color: #00494d;
+  text-align: center;
+}
+
+.form {
+  width: 90rem;
+  height: 45rem;
+  padding: 3rem;
+  border-radius: 20px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.tip-group {
+  height: 100%;
+  color: #7f9c9f;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.tip-group .form-group__form-label {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.4rem;
+}
+.tip-group .form-group__form-control {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+.tip-group .form-group__form-control .image-box {
+  width: 2rem;
+  height: 1.5rem;
+  padding-left: 10px;
+}
+.tip-group .form-group__form-control .image-box img {
+  height: 100%;
+}
+.tip-group .form-group__form-control input {
+  flex: 1;
+  width: 12rem;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: right;
+  background-color: #f4fafa;
+  color: #00494d;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  padding: 1rem 2rem;
+}
+.tip-group .form-group__form-control input::placeholder {
+  text-align: right;
+}
+.tip-group .tip-box__header {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.tip-group .tip-box__btns {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.tip-group .tip-box__btns .tip-btn {
+  width: 12rem;
+  padding: 1rem 0;
+  font-weight: 700;
+  background-color: #00494d;
+  color: white;
+  transition: 200ms ease-in-out;
+}
+.tip-group .tip-box__btns .tip-btn:hover {
+  background-color: #26c0ab;
+  color: #00494d;
+}
+.tip-group .tip-box__btns .custom-input {
+  width: 12rem;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: right;
+  background-color: #f4fafa;
+  color: #00494d;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  padding: 1rem 0.5rem;
+}
+
+.tip-display {
+  flex: 1;
+  height: 100%;
+  padding: 3rem;
+  background-color: #00494d;
+  border-radius: 20px;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,10 @@
+@use './abstract/variables' as *;
+
+.header {
+    margin-bottom: 4rem;
+    font-size: 1.9rem;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    color: $very-dark-cyan;
+    text-align: center;
+}

@@ -1,0 +1,24 @@
+@use './variables' as *;
+
+@function radius($radius) {
+    @return map-get($border-radius, $radius);
+}
+
+@mixin flex($justify-content) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify-content;
+}
+
+@mixin inputField {
+    width: 12rem;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: right;
+    background-color: $light-grayish-cyan;
+    color: $very-dark-cyan;
+    border: none;
+    border-radius: radius(sm);
+    outline: none;
+}

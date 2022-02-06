@@ -1,4 +1,5 @@
 @use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
 
 *,
 *::before,
@@ -14,10 +15,7 @@ html {
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    @include flex(center);
     min-height: 100vh;
     font-family: 'Space Mono', monospace;
     background-color: $light-grayish-cyan-background;
@@ -26,6 +24,10 @@ body {
 button {
     outline: none;
     border: none;
-    border-radius: $radius-sm;
+    cursor: pointer;
+    border-radius: radius(sm);
     font-size: 2rem;
+    font-family: inherit;
 }
+
+

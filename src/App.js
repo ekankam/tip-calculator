@@ -1,8 +1,17 @@
-import React from 'react';
+import React from 'react'
+import Form from './components/Form'
 
 const App = () => {
-  return <h1>Tip Calculator</h1>;
-};
+    return (
+        <div className="container">
+            <h2 className="header">
+                Spli <br /> tter
+            </h2>
+            <main className="main">
+                <Form />
+            </main>
+        </div>
+    )
+}
 
-export default App;
-
+export default App

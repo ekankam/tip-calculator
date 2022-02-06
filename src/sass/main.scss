@@ -1,2 +1,6 @@
-@use'./abstract/variables';
-@use'./base/reset.scss';
+@use './abstract/variables';
+@use './abstract/mixins' as *;
+@use './base/reset';
+@use 'header';
+@use 'form';
+@use 'displayScreen';
