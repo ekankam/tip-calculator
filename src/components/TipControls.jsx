@@ -14,7 +14,7 @@ const TipControls = ({ formState, setFormState, getButtonValue }) => {
     }
 
     return (
-        <div className="tip-group">
+        <div className="left">
             {/* Bill input */}
             <TextInputField
                 label="Bill"
@@ -29,10 +29,10 @@ const TipControls = ({ formState, setFormState, getButtonValue }) => {
                 onChange={onChangeHandler}
             />
             {/* Tip percentage */}
-            <div className="tip-box">
-                <p className="tip-box__header">Select Tip %</p>
+            <div className="btn-box">
+                <p className="btn-box__header">Select Tip %</p>
 
-                <div className="tip-box__btns">
+                <div className="btn-box__btns">
                     <Button
                         className="tip-btn"
                         type="button"

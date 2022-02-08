@@ -1,16 +1,19 @@
 @use './abstract/variables' as *;
 @use './abstract/mixins' as *;
 
-.tip-display {
+.right {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex: 1;
-    height: 100%;
-    padding: 4rem;
+    gap: 6rem;
+    padding: 3rem;
     background-color: $very-dark-cyan;
     border-radius: radius(lg);
     color: $white;
+
+    @media screen and (min-width: 680px) {
+        width: 50%;
+    }
 
     .tip-amount {
         @include flex(space-between);

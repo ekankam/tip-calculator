@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import TipControls from './TipControls'
 import TipDisplayScreen from './TipDisplayScreen'
 
-const Form = () => {
+const TipBox = () => {
     const [formState, setFormState] = useState({
         bill: '',
         people: '',
@@ -52,8 +52,6 @@ const Form = () => {
         setAmountPerPerson(total)
     }
 
-    const onSubmitHandler = (e) => e.preventDefault()
-
     // clear formState
     const clearFormState = () => {
         setFormState({
@@ -68,7 +66,7 @@ const Form = () => {
     }
 
     return (
-        <form className="form" onSubmit={onSubmitHandler}>
+        <div className="tip-box">
             <TipControls
                 formState={formState}
                 setFormState={setFormState}
@@ -83,8 +81,8 @@ const Form = () => {
                 amountPerPerson={amountPerPerson}
                 clearFormState={clearFormState}
             />
-        </form>
+        </div>
     )
 }
 
-export default Form
+export default TipBox

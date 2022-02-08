@@ -21,7 +21,7 @@ const TipDisplayScreen = ({
         }
     }
     return (
-        <div className="tip-display">
+        <div className="right">
             <div>
                 <TipAmountDisplay
                     label="Tip Amount"

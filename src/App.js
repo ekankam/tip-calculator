@@ -1,5 +1,5 @@
 import React from 'react'
-import Form from './components/Form'
+import TipBox from './components/TipBox'
 
 const App = () => {
     return (
@@ -7,9 +7,8 @@ const App = () => {
             <h2 className="header">
                 Spli <br /> tter
             </h2>
-            <main className="main">
-                <Form />
-            </main>
+
+            <TipBox />
         </div>
     )
 }

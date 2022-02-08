@@ -12,9 +12,7 @@ html {
 }
 
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
   min-height: 100vh;
   font-family: "Space Mono", monospace;
   background-color: #c5e4e7;
@@ -23,7 +21,7 @@ body {
 button {
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 3px;
   font-size: 2rem;
   font-family: inherit;
 }
@@ -32,18 +30,37 @@ button:focus {
   box-shadow: 0 0 0 3px white, 0 0 0 6px #26c0ab;
 }
 
+.container {
+  max-width: 1440px;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 1.2rem;
+  background-color: transparent;
+}
+
 .error-border {
   outline: none;
   box-shadow: 0 0 0 3px white, 0 0 0 6px #f15f5f;
 }
 
 .error-msg {
-  opacity: 1;
+  display: block;
   color: #f15f5f;
 }
 
-.border-green {
-  border: 2px solid #26c0ab;
+.border-green:focus-within {
+  box-shadow: 0 0 0 3px white, 0 0 0 6px #26c0ab;
+  border-radius: 3px;
+}
+
+.border-red {
+  box-shadow: 0 0 0 3px white, 0 0 0 6px #f15f5f;
+  border-radius: 3px;
 }
 
 .header {
@@ -55,52 +72,57 @@ button:focus {
   text-align: center;
 }
 
-.form {
-  width: 90rem;
-  height: 45rem;
-  padding: 3rem;
-  border-radius: 20px;
+.tip-box {
+  width: 97%;
   background-color: white;
+  color: #5e7a7d;
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 4rem 0 2rem;
+}
+@media screen and (min-width: 680px) {
+  .tip-box {
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5rem;
+  }
+}
+@media screen and (min-width: 680px) {
+  .tip-box .left {
+    width: 50%;
+  }
+}
+.tip-box .left .form-group:last-child {
+  margin-bottom: 2rem;
+}
+.tip-box .left .form-group__form-label {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 4rem;
-}
-
-.tip-group {
-  height: 100%;
-  color: #7f9c9f;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.tip-group .form-group__form-label {
   margin-bottom: 1rem;
+}
+.tip-box .left .form-group__form-label .msg {
+  display: none;
+}
+.tip-box .left .form-group__form-control {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1.4rem;
-}
-.tip-group .form-group__form-label .msg {
-  opacity: 0;
-}
-.tip-group .form-group__form-control {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
   gap: 1rem;
+  padding-left: 1rem;
+  background-color: #f4fafa;
 }
-.tip-group .form-group__form-control .image-box {
-  width: 2rem;
-  height: 1.5rem;
-  padding-left: 10px;
+.tip-box .left .form-group__form-control .image-box {
+  height: 1.2rem;
 }
-.tip-group .form-group__form-control .image-box img {
+.tip-box .left .form-group__form-control .image-box img {
+  width: 100%;
   height: 100%;
 }
-.tip-group .form-group__form-control input {
-  flex: 1;
-  width: 12rem;
+.tip-box .left .form-group__form-control input {
   font-family: inherit;
   font-weight: bold;
   font-size: 2rem;
@@ -108,39 +130,46 @@ button:focus {
   background-color: #f4fafa;
   color: #00494d;
   border: none;
-  border-radius: 5px;
   outline: none;
-  padding: 1rem 2rem;
+  flex: 1;
 }
-.tip-group .form-group__form-control input:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px white, 0 0 0 6px #26c0ab;
+.tip-box .left .btn-box {
+  margin: 1rem 0;
 }
-.tip-group .tip-box__header {
-  font-size: 1.4rem;
+.tip-box .left .btn-box__header {
   margin-bottom: 1rem;
 }
-.tip-group .tip-box__btns {
-  width: 100%;
+.tip-box .left .btn-box__btns {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
 }
-.tip-group .tip-box__btns .tip-btn {
-  width: 12rem;
-  padding: 1rem 0;
-  font-weight: 700;
+@media screen and (min-width: 680px) {
+  .tip-box .left .btn-box__btns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.tip-box .left .btn-box__btns .tip-btn {
   background-color: #00494d;
+  padding: 6px 0;
+  width: 20rem;
   color: white;
+  font-weight: 700;
   transition: 200ms ease-in-out;
 }
-.tip-group .tip-box__btns .tip-btn:hover {
+.tip-box .left .btn-box__btns .tip-btn:hover {
   background-color: #a5eee5;
   color: #00494d;
 }
-.tip-group .tip-box__btns .custom-input {
-  width: 12rem;
+.tip-box .left .btn-box__btns .tip-btn:focus {
+  background-color: #26c0ab;
+}
+@media screen and (min-width: 680px) {
+  .tip-box .left .btn-box__btns .tip-btn {
+    width: 12rem;
+  }
+}
+.tip-box .left .btn-box__btns .custom-input {
   font-family: inherit;
   font-weight: bold;
   font-size: 2rem;
@@ -148,46 +177,55 @@ button:focus {
   background-color: #f4fafa;
   color: #00494d;
   border: none;
-  border-radius: 5px;
   outline: none;
-  padding: 1rem 0.5rem;
+  width: 20rem;
 }
-.tip-group .tip-box__btns .custom-input:focus {
+.tip-box .left .btn-box__btns .custom-input:focus {
   outline: none;
   box-shadow: 0 0 0 3px white, 0 0 0 6px #26c0ab;
+  border-radius: 3px;
+}
+@media screen and (min-width: 680px) {
+  .tip-box .left .btn-box__btns .custom-input {
+    width: 12rem;
+  }
 }
 
-.tip-display {
+.right {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 1;
-  height: 100%;
-  padding: 4rem;
+  gap: 6rem;
+  padding: 3rem;
   background-color: #00494d;
   border-radius: 20px;
   color: white;
 }
-.tip-display .tip-amount {
+@media screen and (min-width: 680px) {
+  .right {
+    width: 50%;
+  }
+}
+.right .tip-amount {
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 1.4rem;
 }
-.tip-display .tip-amount:first-child {
+.right .tip-amount:first-child {
   margin-bottom: 3rem;
 }
-.tip-display .tip-amount span:not(.amount) {
+.right .tip-amount span:not(.amount) {
   font-size: 1rem;
   color: #7f9c9f;
 }
-.tip-display .tip-amount .amount {
+.right .tip-amount .amount {
   font-size: 4rem;
   font-weight: 700;
   padding-left: 1rem;
   color: #26c0ab;
 }
-.tip-display .display-btn {
+.right .display-btn {
   padding: 0.8rem 0;
   font-weight: 700;
   text-transform: uppercase;
@@ -195,7 +233,7 @@ button:focus {
   color: #00494d;
   transition: 200ms ease-in-out;
 }
-.tip-display .display-btn:hover {
+.right .display-btn:hover {
   background-color: #a5eee5;
 }
 
