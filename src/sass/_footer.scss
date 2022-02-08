@@ -1,0 +1,15 @@
+@use './abstract/variables' as *;
+@use './abstract/mixins' as *;
+
+.footer {
+    @include flex(center);
+    font-size: 1.3rem;
+    height: 10rem;
+    width: 100%;
+
+    a {
+        text-decoration: underline;
+        font-weight: 700;
+        color: $dark-grayish-cyan;
+    }
+}

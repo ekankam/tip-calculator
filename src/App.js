@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './components/Footer'
 import TipBox from './components/TipBox'
 
 const App = () => {
@@ -9,6 +10,7 @@ const App = () => {
             </h2>
 
             <TipBox />
+            <Footer />
         </div>
     )
 }
