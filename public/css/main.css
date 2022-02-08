@@ -21,12 +21,29 @@ body {
 }
 
 button {
-  outline: none;
   border: none;
   cursor: pointer;
   border-radius: 5px;
   font-size: 2rem;
   font-family: inherit;
+}
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px white, 0 0 0 6px #26c0ab;
+}
+
+.error-border {
+  outline: none;
+  box-shadow: 0 0 0 3px white, 0 0 0 6px #f15f5f;
+}
+
+.error-msg {
+  opacity: 1;
+  color: #f15f5f;
+}
+
+.border-green {
+  border: 2px solid #26c0ab;
 }
 
 .header {
@@ -64,6 +81,9 @@ button {
   justify-content: space-between;
   font-size: 1.4rem;
 }
+.tip-group .form-group__form-label .msg {
+  opacity: 0;
+}
 .tip-group .form-group__form-control {
   display: flex;
   align-items: center;
@@ -92,8 +112,9 @@ button {
   outline: none;
   padding: 1rem 2rem;
 }
-.tip-group .form-group__form-control input::placeholder {
-  text-align: right;
+.tip-group .form-group__form-control input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px white, 0 0 0 6px #26c0ab;
 }
 .tip-group .tip-box__header {
   font-size: 1.4rem;
@@ -115,7 +136,7 @@ button {
   transition: 200ms ease-in-out;
 }
 .tip-group .tip-box__btns .tip-btn:hover {
-  background-color: #26c0ab;
+  background-color: #a5eee5;
   color: #00494d;
 }
 .tip-group .tip-box__btns .custom-input {
@@ -131,13 +152,51 @@ button {
   outline: none;
   padding: 1rem 0.5rem;
 }
+.tip-group .tip-box__btns .custom-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px white, 0 0 0 6px #26c0ab;
+}
 
 .tip-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   flex: 1;
   height: 100%;
-  padding: 3rem;
+  padding: 4rem;
   background-color: #00494d;
   border-radius: 20px;
+  color: white;
+}
+.tip-display .tip-amount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.4rem;
+}
+.tip-display .tip-amount:first-child {
+  margin-bottom: 3rem;
+}
+.tip-display .tip-amount span:not(.amount) {
+  font-size: 1rem;
+  color: #7f9c9f;
+}
+.tip-display .tip-amount .amount {
+  font-size: 4rem;
+  font-weight: 700;
+  padding-left: 1rem;
+  color: #26c0ab;
+}
+.tip-display .display-btn {
+  padding: 0.8rem 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #26c0ab;
+  color: #00494d;
+  transition: 200ms ease-in-out;
+}
+.tip-display .display-btn:hover {
+  background-color: #a5eee5;
 }
 
 /*# sourceMappingURL=main.css.map */

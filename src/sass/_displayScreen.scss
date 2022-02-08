@@ -2,9 +2,47 @@
 @use './abstract/mixins' as *;
 
 .tip-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     flex: 1;
     height: 100%;
-    padding: 3rem;
+    padding: 4rem;
     background-color: $very-dark-cyan;
     border-radius: radius(lg);
+    color: $white;
+
+    .tip-amount {
+        @include flex(space-between);
+        font-size: 1.4rem;
+
+        &:first-child {
+            margin-bottom: 3rem;
+        }
+
+        span:not(.amount) {
+            font-size: 1rem;
+            color: $dark-grayish-cyan-second;
+        }
+
+        .amount {
+            font-size: 4rem;
+            font-weight: 700;
+            padding-left: 1rem;
+            color: $primary;
+        }
+    }
+
+    .display-btn {
+        padding: 0.8rem 0;
+        font-weight: 700;
+        text-transform: uppercase;
+        background-color: $primary;
+        color: $very-dark-cyan;
+        transition: 200ms ease-in-out;
+
+        &:hover {
+            background-color: $primary-light;
+        }
+    }
 }

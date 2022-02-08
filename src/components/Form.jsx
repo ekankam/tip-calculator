@@ -3,24 +3,86 @@ import TipControls from './TipControls'
 import TipDisplayScreen from './TipDisplayScreen'
 
 const Form = () => {
-    const [inputState, setInputState] = useState({
+    const [formState, setFormState] = useState({
         bill: '',
-        numOfPeople: '',
+        people: '',
+        custom: '',
+        tipButtonClicked: false,
+        isSubmit: false,
     })
-    console.log(inputState)
 
-    const tipHandler = (tip) => {
-        console.log(tip)
+    const [tipPerPerson, setTipPerPerson] = useState('')
+    const [amountPerPerson, setAmountPerPerson] = useState('')
+    const [tipButtonValue, setTipButtonValue] = useState(0)
+
+    const { bill, people, custom } = formState
+
+    // get button tip value
+    const getButtonValue = (value) => {
+        setTipButtonValue(value)
+        return value
+    }
+
+    // calculate tip and total
+    const calculateTipHandler = () => {
+        let perTip, totalTip, roundTip
+
+        // if bill and people input field empty, do not submit form
+        if (bill === '' || people === '') return
+
+        if (bill !== '' && people !== '' && custom !== '') {
+            perTip = (Number(bill) * Number(custom / 100)) / Number(people)
+            totalTip = Number(bill) * Number(custom / 100)
+
+            roundTip = Math.round(perTip * 100) / 100
+            setTipPerPerson(roundTip)
+        } else {
+            perTip = (Number(bill) * Number(tipButtonValue)) / Number(people)
+            totalTip = Number(bill) * Number(tipButtonValue)
+
+            roundTip = Math.round(perTip * 100) / 100
+            setTipPerPerson(roundTip)
+            setFormState({ ...formState, tipButtonClicked: true })
+        }
+
+        // calculating total
+        const total = Math.round(
+            (((Number(bill) + totalTip) / Number(people)) * 100) / 100
+        )
+        setAmountPerPerson(total)
+    }
+
+    const onSubmitHandler = (e) => e.preventDefault()
+
+    // clear formState
+    const clearFormState = () => {
+        setFormState({
+            bill: '',
+            people: '',
+            custom: '',
+            tipButtonClicked: false,
+            isInputValid: false,
+        })
+        setAmountPerPerson('')
+        setTipPerPerson('')
     }
 
     return (
-        <form className="form">
+        <form className="form" onSubmit={onSubmitHandler}>
             <TipControls
-                inputState={inputState}
-                setInputState={setInputState}
-                tipHandler={tipHandler}
+                formState={formState}
+                setFormState={setFormState}
+                calculateTipHandler={calculateTipHandler}
+                getButtonValue={getButtonValue}
             />
-            <TipDisplayScreen />
+            <TipDisplayScreen
+                formState={formState}
+                setFormState={setFormState}
+                calculateTipHandler={calculateTipHandler}
+                tipPerPerson={tipPerPerson}
+                amountPerPerson={amountPerPerson}
+                clearFormState={clearFormState}
+            />
         </form>
     )
 }

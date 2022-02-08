@@ -22,12 +22,34 @@ body {
 }
 
 button {
-    outline: none;
     border: none;
     cursor: pointer;
     border-radius: radius(sm);
     font-size: 2rem;
     font-family: inherit;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px $white, 0 0 0 6px $primary;
+    }
 }
 
+.error-border {
+    outline: none;
+    box-shadow: 0 0 0 3px $white, 0 0 0 6px $error;
+}
 
+.error-msg {
+    display: block;
+    color: $error;
+}
+
+.border-green:focus-within {
+    box-shadow: 0 0 0 3px $white, 0 0 0 6px $primary;
+    border-radius: radius(sm);
+}
+
+.border-red {
+    box-shadow: 0 0 0 3px $white, 0 0 0 6px $error;
+    border-radius: radius(sm);
+}
